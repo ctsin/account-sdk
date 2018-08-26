@@ -1,8 +1,11 @@
 import { $ } from "../common/utils";
 import { postman } from "../common/postman";
-import "../common/mock";
 
-export const on = (opts = {}) => {
+// 初始化假数据监听
+import "../common/mock";
+import { LoginOptions } from "./interface";
+
+export const on = (opts: LoginOptions) => {
   const $loginBtn = $("#login-btn");
   const $remember = $("#login-remember");
   const $clearAccount = $("#clear-account");
@@ -12,7 +15,8 @@ export const on = (opts = {}) => {
   const $error = $("#login-error");
 
   $loginBtn.addEventListener("click", async event => {
-    const data = await fetch("./login").then(res => res.json());
-    console.log("data :", data);
+    await postman("/login").then(() => {
+      opts.success();
+    });
   });
 };

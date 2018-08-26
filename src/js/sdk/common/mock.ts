@@ -1,5 +1,5 @@
 import FetchMock from "fetch-mock";
 
-FetchMock.mock("./login", () => {
-  return { x: Math.random() * 999 };
+FetchMock.mock("/login", (undefined, opts) => {
+  return { code: 200, message: "SUCCESS" };
 });

@@ -15,7 +15,7 @@ export const login = (opts: LoginOptions) => {
     showRemember: true
   };
 
-  const options = Object.assign({}, DEFAULT_OPTIONS, opts);
+  const options: LoginOptions = Object.assign({}, DEFAULT_OPTIONS, opts);
 
   view(options);
   on(options);
