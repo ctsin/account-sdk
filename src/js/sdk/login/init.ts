@@ -1,22 +1,11 @@
 import { view } from "./view";
-import { on } from "./model";
-import { LoginOptions } from "./interface";
+import { model } from "./model";
+import { FormOptions } from "../common/interface";
+import { FORM_OPTIONS_DEFAULT } from "../common/constant";
 
-export const login = (opts: LoginOptions) => {
-  const DEFAULT_OPTIONS = {
-    loginBtnText: "登录",
-    accountPlaceHolder: "手机号/邮箱/账号",
-    accountLabel: "",
-    passwordPlaceHolder: "请填写密码",
-    passwordLabel: "",
-    verifyPlaceHolder: "验证码",
-    accountMax: 30,
-    passwordMax: 30,
-    showRemember: true
-  };
-
-  const options: LoginOptions = Object.assign({}, DEFAULT_OPTIONS, opts);
+export const login = (opts: FormOptions) => {
+  const options: FormOptions = Object.assign({}, FORM_OPTIONS_DEFAULT, opts);
 
   view(options);
-  on(options);
+  model(options);
 };

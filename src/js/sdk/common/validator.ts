@@ -1,4 +1,4 @@
-import { Rule } from "../login/interface";
+import { Rule, ValidateResult } from "./interface";
 
 const messageFormated = key => `您填写的${key}格式不正确`;
 
@@ -29,12 +29,11 @@ export const validator = (form: HTMLFormElement) => {
   const elements: HTMLFormControlsCollection = form.elements;
 
   return Array.from(elements)
-    .filter((el: HTMLInputElement) => !!el.getAttribute("validate"))
-    .reduce((results, current: HTMLInputElement) => {
+    .filter((el: HTMLInputElement) => !!el.dataset.validate)
+    .reduce((results: ValidateResult[], current: HTMLInputElement) => {
       const value = current.value;
 
-      current
-        .getAttribute("validate")
+      current.dataset.validate
         .replace(/\s+/g, " ")
         .trim()
         .split(" ")

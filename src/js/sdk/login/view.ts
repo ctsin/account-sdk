@@ -1,58 +1,67 @@
-import { LoginOptions } from "./interface";
+import { FormOptions } from "../common/interface";
 import { html, render } from "lit-html";
+import { $ } from "../common/utils";
 
-const template = (opts: LoginOptions) => {
-  return html`
-    <div id="login-wrapper">
-      <p id="login-error" class="login-error"></p>
-        <form id="login-form" onsubmit="return false">
-          <label class="login-accound-wrapper">
-            <span class="account-label">${opts.accountLabel}</span>
-            <input 
-              id="login-account" 
-              validate="required" 
-              name="account" 
-              type="text" 
-              placeholder="${opts.accountPlaceHolder}" 
-              maxlength="${opts.accountMax}" 
-              autocomplete="off"
-            />
-            <span id="clear-account" class="del"></span>
-          </label>
+const template = ({
+  accountLabel,
+  accountPlaceHolder,
+  accountMax,
+  passwordLabel,
+  passwordPlaceHolder,
+  passwordMax,
+  loginBtnText
+}: FormOptions) => html`
+  <div id="login-wrapper">
+    <p id="login-error" class="login-error"></p>
 
-          <label class="login-password-wrapper">
-            <span class="password-label">${opts.passwordLabel}</span>
-            <input 
-              id="login-password" 
-              validate="required" 
-              name="password" 
-              type="password" 
-              placeholder="${opts.passwordPlaceHolder}" 
-              maxlength="${opts.passwordMax}" 
-              autocomplete="off"
-            />
-            <span id="clear-password" class="del"></span>
-          </label>
+    <form id="login-form" onsubmit="return false">
+      <label class="login-accound-wrapper">
+        <span class="account-label">${accountLabel}</span>
 
-          <label class="login-remember-wrapper" >
-            <span>记住密码：</span>
-            <input id="login-remember" name="remember" type="checkbox">
-          </label>
+        <input 
+          id="login-account" 
+          data-validate="email" 
+          name="account" 
+          type="text" 
+          placeholder="${accountPlaceHolder}" 
+          maxlength="${accountMax}" 
+          autocomplete="off"
+        />
+      </label>
 
-          <input 
-            id="login-btn" 
-            class="login-btn" 
-            type="submit" 
-            value="${opts.loginBtnText}"
-          />
-        </form>
-        <div class="login-extra-wrapper">
-          <a href="forget.html">忘记密码</a>
-          <a href="register-mobile.html">免费注册</a>
-        </div>
-    </div>`;
-};
+      <label class="login-password-wrapper">
+        <span class="password-label">${passwordLabel}</span>
 
-export const view = (opts: LoginOptions) => {
+        <input 
+          id="login-password" 
+          data-validate="required" 
+          name="password" 
+          type="password" 
+          placeholder="${passwordPlaceHolder}" 
+          maxlength="${passwordMax}" 
+          autocomplete="off"
+        />
+      </label>
+
+      <label class="login-remember-wrapper" >
+        <span>记住密码：</span>
+        <input id="login-remember" name="remember" type="checkbox">
+      </label>
+
+      <input 
+        id="login-btn" 
+        class="login-btn" 
+        type="submit" 
+        value="${loginBtnText}"
+      />
+    </form>
+
+    <div class="login-extra-wrapper">
+      <a href="forget.html">忘记密码</a>
+      <a href="register-mobile.html">免费注册</a>
+    </div>
+  </div>`;
+
+export const view = (opts: FormOptions) => {
   render(template(opts), opts.container);
 };

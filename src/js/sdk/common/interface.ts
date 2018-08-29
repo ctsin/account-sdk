@@ -1,8 +1,8 @@
 /**
  * 登录方法可选参数接口
  */
-export interface LoginOptions {
-  container: Element;
+export interface FormOptions {
+  container?: HTMLElement;
   loginBtnText?: string;
   accountPlaceHolder?: string;
   accountLabel?: string;
@@ -19,5 +19,14 @@ export interface LoginOptions {
  * 表单验证方法接口
  */
 export interface Rule {
-  [ruleName: string]: (key: string) => { type: string; message: string };
+  [ruleName: string]: (key: string) => ValidateResult;
+}
+
+/**
+ * 表单验证方法返回值接口
+ */
+
+export interface ValidateResult {
+  type: string;
+  message: string;
 }
