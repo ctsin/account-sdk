@@ -1,3 +1,6 @@
+/**
+ * 登录方法可选参数接口
+ */
 export interface LoginOptions {
   container: Element;
   loginBtnText?: string;
@@ -10,4 +13,11 @@ export interface LoginOptions {
   passwordMax?: number;
   showRemember?: boolean;
   success?: () => void;
+}
+
+/**
+ * 表单验证方法接口
+ */
+export interface Rule {
+  [ruleName: string]: (key: string) => { type: string; message: string };
 }

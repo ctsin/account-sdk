@@ -1,1 +1,2 @@
-export const $ = (selector, scope = document) => scope.querySelector(selector);
+export const $ = <T>(selector, scope = document): T =>
+  scope.querySelector(selector);

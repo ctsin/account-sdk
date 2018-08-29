@@ -10,7 +10,7 @@ const template = (opts: LoginOptions) => {
             <span class="account-label">${opts.accountLabel}</span>
             <input 
               id="login-account" 
-              valid="present" 
+              validate="required" 
               name="account" 
               type="text" 
               placeholder="${opts.accountPlaceHolder}" 
@@ -24,23 +24,14 @@ const template = (opts: LoginOptions) => {
             <span class="password-label">${opts.passwordLabel}</span>
             <input 
               id="login-password" 
-              valid="present" 
+              validate="required" 
               name="password" 
               type="password" 
               placeholder="${opts.passwordPlaceHolder}" 
-              maxlength="${opts.passwordMax}" autocomplete="off"
+              maxlength="${opts.passwordMax}" 
+              autocomplete="off"
             />
-          </label>
-
-          <label style="display: none" class="login-verify-wrapper">
-            <span class="verify-label">验证码：</span>
-            <input 
-              id="login-verify" 
-              name="verifyCode" 
-              type="text" 
-              placeholder="${opts.verifyPlaceHolder}"
-            />
-            <img src="/verifycode">
+            <span id="clear-password" class="del"></span>
           </label>
 
           <label class="login-remember-wrapper" >
