@@ -1,4 +1,4 @@
-import { FormOptions } from "../common/interface";
+import { SDKFormOptions } from "../common/interface";
 import { $ } from "../common/utils";
 import { postman } from "../common/postman";
 import { validator } from "../common/validator";
@@ -7,7 +7,7 @@ import { validator } from "../common/validator";
 import "../common/mock";
 import { MockResponseObject } from "fetch-mock";
 
-export const model = ({ success }: FormOptions) => {
+export const model = ({ success }: SDKFormOptions) => {
   const $loginForm: HTMLFormElement = $("#login-form");
   const $loginBtn: HTMLButtonElement = $("#login-btn");
   const $remember: HTMLInputElement = $("#login-remember");

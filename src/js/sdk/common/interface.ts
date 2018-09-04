@@ -1,7 +1,7 @@
 /**
  * 登录方法可选参数接口
  */
-export interface FormOptions {
+export interface SDKFormOptions {
   container?: HTMLElement;
   loginBtnText?: string;
   accountPlaceHolder?: string;

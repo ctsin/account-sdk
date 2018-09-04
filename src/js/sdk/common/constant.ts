@@ -1,7 +1,7 @@
-import { FormOptions } from "./interface";
+import { SDKFormOptions } from "./interface";
 import { $ } from "./utils";
 
-export const FORM_OPTIONS_DEFAULT: FormOptions = {
+export const FORM_OPTIONS_DEFAULT: SDKFormOptions = {
   container: $("#form-container"),
   loginBtnText: "登录",
   accountPlaceHolder: "手机号/邮箱/账号",

@@ -1,4 +1,4 @@
-import { FormOptions } from "../common/interface";
+import { SDKFormOptions } from "../common/interface";
 import { html, render } from "lit-html";
 
 const template = ({
@@ -9,7 +9,7 @@ const template = ({
   passwordPlaceHolder,
   passwordMax,
   loginBtnText
-}: FormOptions) => html`
+}: SDKFormOptions) => html`
   <div id="login-wrapper">
     <p id="login-error" class="login-error"></p>
 
@@ -61,6 +61,6 @@ const template = ({
     </div>
   </div>`;
 
-export const view = (opts: FormOptions) => {
+export const view = (opts: SDKFormOptions) => {
   render(template(opts), opts.container);
 };
