@@ -16,7 +16,7 @@
     "typescript-eslint-parser": "^18.0.0"
   },
   "scripts": {
-    "dev": "parcel ./src/pug/login.pug -p 5500",
+    "dev": "parcel ./src/pug/register-info.pug -p 5500",
     "re": "rm -rf .cache/ dist/ && yarn dev"
   }
 }
