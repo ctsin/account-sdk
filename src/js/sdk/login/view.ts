@@ -1,6 +1,5 @@
 import { FormOptions } from "../common/interface";
 import { html, render } from "lit-html";
-import { $ } from "../common/utils";
 
 const template = ({
   accountLabel,
