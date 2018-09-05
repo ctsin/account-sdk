@@ -1,4 +1,4 @@
-import { SDKFormOptions } from "../common/interface";
+import { SDKFormOptions } from "../common/form-options";
 import { html, render } from "lit-html";
 
 const template = ({

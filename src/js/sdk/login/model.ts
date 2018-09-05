@@ -1,4 +1,4 @@
-import { SDKFormOptions } from "../common/interface";
+import { SDKFormOptions } from "../common/form-options";
 import { $ } from "../common/utils";
 import { postman } from "../common/postman";
 import { validator } from "../common/validator";
