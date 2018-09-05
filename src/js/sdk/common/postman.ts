@@ -1,4 +1,6 @@
 export const postman = (url: string) => {
+  "Authorization": 
+  
   const get = () => {
     return fetch(url, {
       method: "GET",
