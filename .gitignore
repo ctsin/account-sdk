@@ -1,3 +1,6 @@
+# 忽略 TOKEN 文件
+src/js/sdk/auth/
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
