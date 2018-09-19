@@ -1,7 +1,7 @@
 import {
   SDKFormOptions,
   SDK_FORM_OPTIONS_DEFAULT
-} from "../../common/form-options";
+} from "../../common/form-option";
 import { model } from "./model";
 import { view } from "./view";
 

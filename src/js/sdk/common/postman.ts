@@ -1,22 +1,25 @@
-export const postman = (url: string) => {
-  const get = () => {
-    return fetch(url, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json"
-      }
-    }).then(res => res.json());
-  };
+import { APIKEY } from "../auth/token";
+import { JSONBIN } from "./api";
 
-  const post = (data = {}) => {
-    return fetch(url, {
-      method: "POST",
+export const postman = (route: string) => {
+  const req = (method = "GET", data?) => {
+    const requestInit: RequestInit = {
+      method,
       headers: {
-        "content-type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: "token " + APIKEY
       },
-      body: JSON.stringify(data)
-    }).then(res => res.json());
+      mode: "cors"
+    };
+
+    data && (requestInit.body = JSON.stringify(data));
+
+    return fetch(JSONBIN + route, requestInit).then(res => res.json());
   };
 
-  return { get, post };
+  const get = () => req();
+  const patch = data => req("PATCH", data);
+  const post = data => req("POST", data);
+
+  return { get, patch, post };
 };

@@ -17,7 +17,7 @@ export interface SDKFormOptions {
   nickname?: string;
   email?: string;
   realname?: string;
-  sex?: string;
+  gender?: string;
   birthday?: Date;
   success?: () => void;
 }
@@ -39,7 +39,7 @@ export const SDK_FORM_OPTIONS_DEFAULT: SDKFormOptions = {
   nickname: "",
   email: "",
   realname: "",
-  sex: "",
+  gender: "",
   birthday: new Date(),
   success: () => void 0
 };

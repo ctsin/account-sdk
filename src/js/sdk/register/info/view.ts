@@ -1,11 +1,13 @@
-import { SDKFormOptions } from "../../common/form-options";
+import { SDKFormOptions } from "../../common/form-option";
 import { html, render } from "lit-html";
+import { selectRender } from "../../common/region";
+import { $ } from "../../common/utils";
 
 const template = ({
   nickname,
   email,
   realname,
-  sex,
+  gender,
   birthday
 }: SDKFormOptions) => {
   return html`
@@ -50,9 +52,9 @@ const template = ({
           <span>性别：</span>
 
           <select 
-            id="register-info-sex" 
-            name="sex" 
-            value="${sex || ""}"
+            id="register-info-gender" 
+            name="gender" 
+            value="${gender || ""}"
           >
             <option value="1">男</option>
             <option value="2">女</option>
@@ -84,11 +86,14 @@ const template = ({
           />
         </label>
       </form>
-    </div>`;
+    </div>
+  `;
 };
 
 export const view = async (options: SDKFormOptions) => {
   const { container } = options;
 
   render(template(options), container);
+
+  selectRender($<HTMLDivElement>("#register-info-address"), "region");
 };
